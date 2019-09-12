@@ -70,15 +70,13 @@ app.post('/signup', async(req, res) => {
                     }
                     errMessage="Something went wrong"
                 }
-                else{
-                    errMessage="User exists"
-                }
+                errMessage="User exists"
             } 
+            errMessage="DB User read Failed"
         }
-        else{
-            errMessage="No referral"
-        }
+        errMessage="No referral"
     }
+    errMessage="DB Referral read Failed"
     res.json({status: "error",data:errMessage});
 });
 

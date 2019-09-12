@@ -37,7 +37,7 @@ var pixieapi={
         return new Promise(async(resolve,reject)=>{
             if(password==confirmPassword && referral.length >0 )
             {
-                console.log("MAKING REQUEST")
+                // console.log("MAKING REQUEST")
                 let resp = await makeRequest("https://pixie.jubi.ai/api/signup", {username:username,password:password,referral:referral})
                 if (resp.status=="success" && resp.data.status=="success"&&resp.data.data.status=="success"){
                     return resolve({status:"success",data:resp.data.data.data})
