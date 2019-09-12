@@ -40,8 +40,8 @@ var pixieapi={
                 // console.log("MAKING REQUEST")
                 let req={username:username,password:password,referral:referral}
                 let resp = await makeRequest("https://pixie.jubi.ai/api/signup", req)
-                if (resp.status=="success" && resp.data.status=="success"&&resp.data.data.status=="success"){
-                    return resolve({status:"success",data:resp.data.data.data})
+                if (resp.status=="success" && resp.data.status=="success"){
+                    return resolve({status:"success",data:resp.data.data})
                 }
                 resp.status="error"
                 return resolve(resp)
