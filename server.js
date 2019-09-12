@@ -52,10 +52,10 @@ app.post('/signup', async(req, res) => {
     let username=req.body.username;
     let resp=await dbOperation("readByReferral", {referral: referral})
     let errMessage=""
-    console.log(JSON.stringify(resp,null,3))
     if(resp.status=="success"){
         if(resp.data&&resp.data.data&&resp.data.data.length>0){
             resp= await dbOperation("readByUsername", {username: username})
+            console.log(JSON.stringify(resp,null,3))
             if(resp.status=="success"){
                 if(resp.data&&resp.data.data&&resp.data.length==0){
                     return res.json({status: "success"});
