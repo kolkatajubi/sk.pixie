@@ -7,6 +7,7 @@ Add this to your frontend code
             let resp=await pixieapi.signup("kanauj1s2","kanaujs","kanaujs","q45@hX")
             resp = await pixieapi.signin("kanauj1s2","kanaujs")
             resp = await pixieapi.checkLogin()
+            resp = await pixieapi.logout()
         })()
         
     </script>
