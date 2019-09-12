@@ -34,9 +34,9 @@ app.post('/signin', async(req, res) => {
         for(let data of resp.data.data){
             if(data.password==req.body.password){
                 delete data.password;
-                data.sesssionId=uuid.v4()
+                data.sessionId=uuid.v4()
                 res.json({status:'success',data:data});
-                await dbOperation("setSessionId",{username:data.username,sessionId:data.sesssionId})
+                await dbOperation("setSessionId",{username:data.username,sessionId:data.sessionId})
                 return
             }
         }
