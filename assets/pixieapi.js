@@ -56,9 +56,9 @@ function makeRequest(url,data){
     return new Promise((resolve,reject)=>{
         $.ajax({
             url: url,
-            type: "POST",
-            dataType: "json",
-            contentType: "application/json",
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
             data: JSON.stringify(data),
             success:(resp)=>{
                 console.log("SUCCESS")
