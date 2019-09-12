@@ -66,8 +66,8 @@ function makeRequest(url,data){
                 return resolve({status:"success",data:resp})
             },
             error:(err)=>{
-                console.log("Error")
-                console.log(err)
+                // console.log("Error")
+                // console.log(err)
                 return resolve({status:"error",data:err})
             }
         });

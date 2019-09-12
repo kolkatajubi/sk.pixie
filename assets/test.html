@@ -8,11 +8,13 @@
     <script src="https://pixie.jubi.ai/api/pixieapi.js"></script>
     <script>
         ;(async()=>{
-            let resp=await pixieapi.signup("kanauj1s2","kanaujs","kanaujs","q45@hX")
-            console.log(resp)
-            resp = await pixieapi.signin("kanauj1s2","kanaujs")
+            // let resp=await pixieapi.signup("kanauj1s2","kanaujs","kanaujs","q45@hX")
+            // console.log(resp)
+            let resp = await pixieapi.signin("kanauj1s2","kanaujs")
+            console.log("FINAL")
             console.log(resp)
             resp = await pixieapi.checkLogin()
+            console.log("FINAL")
             console.log(resp)
         })()
         
