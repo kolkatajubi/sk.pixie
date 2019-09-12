@@ -47,6 +47,13 @@ var pixieapi={
             }
             return resolve({status:"error",data:"Password does not match"})
         })
+    },
+    logout:() =>{
+        return new Promise(async(resolve, reject)=>{
+            localStorage.setItem("username",undefined)
+            localStorage.setItem("sessionId",undefined)
+            return resolve({status:"success"})
+        })
     }
 }
 
