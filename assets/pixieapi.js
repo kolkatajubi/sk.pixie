@@ -22,8 +22,8 @@ var pixieapi={
 
             // localStorage.setItem("sessionId",sessionId)
             let resp = await makeRequest("https://pixie.jubi.ai/api/signin", {username:username,password:password})
-            if (resp.status=="success" && resp.data.status=="success"&&resp.data.data.status=="success"){
-                let user =resp.data.data.data
+            if (resp.status=="success" && resp.data.status=="success"){
+                let user =resp.data.data
                 localStorage.setItem("username",user.username)
                 localStorage.setItem("sessionId",user.sessionId)
                 return resolve({status:"success",data:user})
