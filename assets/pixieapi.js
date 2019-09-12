@@ -28,7 +28,7 @@ var pixieapi={
                 localStorage.setItem("sessionId",user.sessionId)
                 return resolve({status:"success",data:user})
             }
-            
+            resp.status="error"
             return resolve(resp)
 
         })
@@ -41,6 +41,7 @@ var pixieapi={
                 if (resp.status=="success" && resp.data.status=="success"&&resp.data.data.status=="success"){
                     return resolve({status:"success",data:resp.data.data.data})
                 }
+                resp.status="error"
                 return resolve(resp)
             }
             return resolve({status:"error",data:"Password does not match"})

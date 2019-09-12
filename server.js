@@ -57,7 +57,16 @@ app.post('/signup', async(req, res) => {
             resp= await dbOperation("readByUsername", {username: username})
             if(resp.status=="success"&&resp.data.status=="success"){
                 if(resp.data&&resp.data.data&&resp.data.data.length==0){
-                    return res.json({status: "success"});
+                    let user={
+                        username:username,
+                        password:password,
+                        referral:uuid.v4()
+                    }
+                    resp=await dbOperation("createUser",user)
+                    if(resp.status=="success"&&resp.data.status=="success"){
+                        return res.json({status: "success"});
+                    }
+                    errMessage="Something went wrong"
                 }
                 else{
                     errMessage="User exists"
