@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 6125;
 const IP = "127.0.0.1";
 let path = require("path");
 const parser = require('body-parser');
