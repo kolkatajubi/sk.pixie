@@ -66,6 +66,7 @@ app.post('/signup', async(req, res) => {
                     resp=await dbOperation("createUser",user)
                     console.log(JSON.stringify(resp));
                     if(resp.status=="success"&&resp.data.status=="success"){
+                        console.log("SUCCESS")
                         return res.json({status: "success"});
                     }
                     errMessage="Something went wrong"
@@ -77,6 +78,7 @@ app.post('/signup', async(req, res) => {
         errMessage="No referral"
     }
     errMessage="DB Referral read Failed"
+    console.log(errMessage)
     res.json({status: "error",data:errMessage});
 });
 
