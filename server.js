@@ -63,6 +63,7 @@ app.post('/signup', async(req, res) => {
                         referral:uuid.v4()
                     }
                     resp=await dbOperation("createUser",user)
+                    console.log(JSON.stringify(resp));
                     if(resp.status=="success"&&resp.data.status=="success"){
                         return res.json({status: "success"});
                     }
