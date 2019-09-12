@@ -54,10 +54,10 @@ app.post('/signup', async(req, res) => {
     let errMessage=""
     console.log(JSON.stringify(resp,null,3))
     if(resp.status=="success"){
-        if(resp.data.length>0){
+        if(resp.data&&resp.data.data&&resp.data.data.length>0){
             resp= await dbOperation("readByUsername", {username: username})
             if(resp.status=="success"){
-                if(resp.data.length==0){
+                if(resp.data&&resp.data.data&&resp.data.length==0){
                     return res.json({status: "success"});
                 }
                 else{
