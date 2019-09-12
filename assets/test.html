@@ -10,10 +10,10 @@
         ;(async()=>{
             let resp=await pixieapi.signup("kanaujs","kanaujs","kanaujs","q45@hX")
             console.log(resp)
-            // resp = await pixieapi.signin("kanaujs","kanaujs")
-            // console.log(resp)
-            // resp = await pixieapi.checkLogin()
-            // console.log(resp)
+            resp = await pixieapi.signin("kanaujs","kanaujs")
+            console.log(resp)
+            resp = await pixieapi.checkLogin()
+            console.log(resp)
         })()
         
     </script>
