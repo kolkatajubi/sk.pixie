@@ -50,6 +50,7 @@ app.post('/signin', async(req, res) => {
 app.post('/signup', async(req, res) => {
     let referral=req.body.referral;
     let username=req.body.username;
+    console.log("SIGNUP")
     let resp=await dbOperation("readByReferral", {referral: referral})
     let errMessage=""
     if(resp.status=="success"&&resp.data.status=="success"){
