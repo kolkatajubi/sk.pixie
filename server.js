@@ -79,6 +79,7 @@ app.post('/signup', async(req, res) => {
     }
     errMessage="DB Referral read Failed"
     console.log(errMessage)
+    console.log(JSON.stringify(resp,null,3))
     res.json({status: "error",data:errMessage});
 });
 
