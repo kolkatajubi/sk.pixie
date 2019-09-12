@@ -40,8 +40,6 @@ var pixieapi={
                 // console.log("MAKING REQUEST")
                 let req={username:username,password:password,referral:referral}
                 let resp = await makeRequest("https://pixie.jubi.ai/api/signup", req)
-                console.log(req)
-                console.log(resp)
                 if (resp.status=="success" && resp.data.status=="success"&&resp.data.data.status=="success"){
                     return resolve({status:"success",data:resp.data.data.data})
                 }
@@ -63,9 +61,13 @@ function makeRequest(url,data){
             contentType: "application.json",
             data: JSON.stringify(data),
             success:(resp)=>{
-                return resolve({status:"success",data:data})
+                console.log("SUCCESS")
+                console.log(resp)
+                return resolve({status:"success",data:resp})
             },
             error:(err)=>{
+                console.log("Error")
+                console.log(err)
                 return resolve({status:"error",data:err})
             }
         });
