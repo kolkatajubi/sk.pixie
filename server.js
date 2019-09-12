@@ -48,13 +48,13 @@ app.post('/signin', async(req, res) => {
 
 
 app.post('/signup', async(req, res) => {
-    let referral=req.body.referral;
-    let username=req.body.username;
-    let resp=await dbOperation("readByReferral", {referral: referral})
+    let referral1=req.body.referral;
+    let username1=req.body.username;
+    let resp=await dbOperation("readByReferral", {referral: referral1})
     let errMessage=""
     if(resp.status=="success"){
         if(resp.data.length>0){
-            resp= await dbOperation("readByUsername", {username: username})
+            resp= await dbOperation("readByUsername", {username: username1})
             if(resp.status=="success"){
                 if(resp.data.length==0){
                     return res.json({status: "success"});
