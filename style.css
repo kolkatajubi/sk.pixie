@@ -1,0 +1,23 @@
+body {
+    padding: 10% 35% 10% 35%;
+    background-color: #222;
+    color: white;
+    font-family: "Comic Sans MS";
+}
+
+button, input {
+    border-radius:10px;
+}
+
+#button {
+    margin:10px;
+    text-align: center;
+}
+
+td {
+    padding: 3px;
+}
+
+form {
+    margin: 0px 0px 60px 0px;
+}
