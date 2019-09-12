@@ -30,8 +30,8 @@ app.post('/checklogin',async (req,res) => {
 app.post('/signin', async(req, res) => {
     
     let resp = await dbOperation("readByUsername",{username:req.body.username})
-    if(resp.status=="success"){
-        for(let data of resp.data){
+    if(resp.data&&resp.status=="success"&&resp.data.status=="success"){
+        for(let data of resp.data.data){
             if(data.password==req.body.password){
                 delete data.password;
                 data.sesssionId=uuid.v4()
@@ -52,11 +52,10 @@ app.post('/signup', async(req, res) => {
     let username=req.body.username;
     let resp=await dbOperation("readByReferral", {referral: referral})
     let errMessage=""
-    if(resp.status=="success"){
+    if(resp.status=="success"&&resp.data.status=="success"){
         if(resp.data&&resp.data.data&&resp.data.data.length>0){
             resp= await dbOperation("readByUsername", {username: username})
-            console.log(JSON.stringify(resp,null,3))
-            if(resp.status=="success"){
+            if(resp.status=="success"&&resp.data.status=="success"){
                 if(resp.data&&resp.data.data&&resp.data.data.length==0){
                     return res.json({status: "success"});
                 }
